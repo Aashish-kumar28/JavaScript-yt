@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operator Demo</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script>
+        function LoadProduct(){
+            fetch(`http://fakestoreapi.com/products/${id}`)
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(data){
+                document.getElementById("imgProduct").src=data.image;
+                document.getElementById("lblTitle").innerHTML=data.title;
+            })
+        }
+        function bodyload(){
+            LoadProduct(1);
+        }
+    </script>
+</head>
+<body class="container-fluid" onload="bodyload()">
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="mt-3 card">
+            <img height="300" id="imgProduct" class="card-img-top">
+            <div class="card-header text-center" style="height:120px">
+                <h2 id="lblTitle"></h2>
+            </div>
+            <div class="card-footer text-center">
+                <button class="btn btn-danger">
+                    <span class="bi bi-chevron-left"></span>
+                </button>
+                <button class="btn btn-danger">
+                    <span class="bi bi-chevron-right"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation</title>
+    <script>
+        function loginClick(){
+            var username=document.getElementById('txtName').value;
+            var password=document.getElementById('txtPwd').value;
+            fetch("../data/user.json")
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(user){
+                for(var users of user){
+                    if((users.UserName==username||users.Mobile==username)&&users.Password==password){
+                        document.write("Login Success..");
+                    }
+                    else{
+                        document.getElementById('msg').innerHTML="Invalid UserName/Password";
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <h1>User Login</h1>
+    <dl>
+        <dt>UserName/Mobile:</dt>
+        <dd><input type="text" id="txtName"></dd>
+        <dt>Password:</dt>
+        <dd><input type="password" id="txtPwd"></dd>
+    </dl>
+    <button onclick="loginClick()">Login</button>
+    <h1 align="center" id="msg"></h1>
+</body>
+</html>

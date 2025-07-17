@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forward Jump</title>
+    <script>
+        var userDetails={
+            CardNumer: '44445555666677778902',
+            CVV: '1234',
+            Expiry: '2023'
+        }
+        function payClick(){
+            var card=document.getElementById('txtCard').value;
+            var cvv=document.getElementById('txtCvv').value;
+            var expiry=document.getElementById('lstExpiry').value;
+            var msg=document.getElementById('msg');
+            if(card==userDetails.CardNumer && cvv==userDetails.CVV && expiry==userDetails.Expiry){
+                msg.innerHTML="<h1>Payment successful.</h1>";
+            }else{
+                msg.innerHTML="<h1>Invalid Card Number.</h1>";
+            }
+
+        }
+
+        // function verifyCard(){
+        //     var card=document.getElementById('txtCard').value;
+        //     if(card==userDetails.CardNumer){
+        //         document.getElementById('txtCvv').disabled=false;
+        //         document.getElementById('txtCvv').focus();
+        //     }else{
+        //         document.getElementById('btnPay').disabled=true;
+        //     }
+        // }
+        // function verifyCvv(){
+        //     var cvv=document.getElementById('txtCvv').value;
+        //     if(cvv=userDetails.CVV){
+        //         document.getElementById('lstExpiry').disabled=false;
+        //         document.getElementById('lstExpiry').focus();
+        //     }
+        // }
+        // function verifyExpiry(){
+        //     var expiry=document.getElementById('lstExpiry').value;
+        //     if(expiry==userDetails.Expiry){
+        //         document.getElementById('btnPay').disabled=false;
+        //         document.getElementById('btnPay').focus();
+        //     }
+        // }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Payment Details</legend>
+        <dl>
+            <dt>Card Number</dt>
+            <dd><input type="text" id="txtCard"></dd>
+            <dt>CVV</dt>
+            <dd><input type="text" id="txtCvv" size="4"></dd>
+            <dt>Expiry</dt>
+            <dd>
+                <select id="lstExpiry">
+                    <option>2022</option>
+                    <option>2023</option>
+                    <option>2024</option>
+                </select>
+            </dd>
+        </dl>
+        <button onclick="payClick()" id="btnPay">Pay</button>
+        <p id="msg"></p>
+    </fieldset>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!-- <script> 
+    function PrintArray(list,title){
+        document.write(`<h1>${title}</h1>`)
+        for(var item of list){
+            document.writeln(item+"<br>");
+        }
+    }
+    PrintArray(["Electronics","Footwear","Fashion"],"Categories");
+    document.write("<hr>");
+    PrintArray(["TV","Mobile","Watch"],"Products");
+</script> -->
+
+<script>
+    var PrintProducts=()=>{
+        fetch("https://fakestoreapi.com/products")
+        .then(response=>response.json())
+        .then(data=>{
+            for(var item of data){
+                document.write(item.title+"<br>");
+            }
+        })
+    } 
+    PrintProducts();
+</script>

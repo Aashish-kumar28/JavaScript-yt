@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For loop</title>
+    <script>
+        function Loadbody(){ 
+            var pin=document.getElementById('txtPin').value;
+            for(var i=0;i<=2;i++)
+            {
+                if(pin=="12345")
+                {
+                    alert("Submit successful");
+                }
+                else{
+                    alert("Invalid Pin..")
+                }
+            } 
+        }
+    </script>
+</head>
+<body class="container">
+    <h1>Pin Validation</h1>
+    <label>Enter Pin:
+        <input type="text" id="txtPin">
+        <button onclick="Loadbody()">Submit</button>
+    </label>
+</body>
+</html>
